@@ -1,0 +1,437 @@
+p.header-eyebrow{
+    @include mq($until: md) {
+        font-size: 25px;
+        line-height: 30px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+br.mobile-break {
+    display: none;
+    @include mq($until: sm) {
+        display: block;
+    }
+}
+
+br.desktop-break {
+    display: block;
+    @include mq($until: lg) {
+        display: none;
+    }
+}
+
+br.tablet-break {
+    display: block;
+    @include mq($until: md) {
+        display: none;
+    }
+}
+
+section.large-mobile-eyebrow .hero .slide .content{
+    p {
+        @include mq($until: lg) {
+            font-size: 25px;
+            line-height: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+}
+
+// Use in HPV = .page-id-24
+// page-id-225 = During Treatment
+// .page-id-21 = Physician
+.page-id-24, .page-id-21, .page-id-225{
+    h1 {
+        font-weight: 500;
+        // font-family: Avenir, sans-serif;
+        //      need an answer on Orbitron vs Avenir
+        font-size: 40px;
+        line-height: 41px;
+
+        @include mq($until: md) {
+            line-height: 34px;
+            font-size: 30px;
+        }
+
+        sup {
+            font-family: Avenir,sans-serif;
+            font-size: 35%;
+            top: -15px;
+            margin-left: 1px;
+        }
+    }
+
+    h3 {
+        margin-bottom: 25px;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.8px;
+    }
+
+    div.component.component-buttons section a.button {
+        @include mq($until: lg) {
+            width: 464px;
+        }
+    }
+
+    .illustrator-centering {
+        padding: 0 80px;
+
+        @include mq($until: lg) {
+            padding: 0 60px;
+        }
+
+        @include mq($until: md) {
+            padding: 0 20px;
+        }
+    }
+
+    .narrow-cta {
+        width: 75%;
+    }
+
+    .narrow-cta .button {
+        margin: 0 0 12px 0;
+    }
+
+    .cta-chevrons .cta {
+        @include mq(desktop) {
+            margin-right: 45px;
+        }
+    }
+
+    ul ul {
+        margin-top: 10px;
+    }
+}
+
+.img-x-flip {
+    transform: scaleX(-1);
+}
+
+.bordered-image{
+    img{
+        border: 5px solid $teal;
+    }
+}
+
+ul.accordion-li-show-diamonds {
+    padding-left: 32px;
+}
+
+img.surveillance-page-crt-image {
+    max-width: 750px;
+}
+
+.footnotes.surveillance-crt-image {
+    color: #666666;
+    margin-left: 22px;
+    max-width: 698px;
+    margin-top: -13px;
+}
+
+.footnotes.surveillance-crt-image.m0 {
+    margin-left: 0px;
+}
+
+.justify-content-center section {
+    justify-content: center;
+}
+
+.physician-page-trf-cta-wide {
+    .cta-item {
+        flex-basis: 424px;
+    }
+}
+
+.gform_confirmation_message_2 {
+    text-align: center;
+}
+
+// $mq-breakpoints: (
+//     mobile      :  580px,
+//     'sm'        :  580px,
+//     tablet      :  768px,
+//     'md'        :  768px,
+//     desktop     : 1024px,
+//     'lg'        : 1024px,
+//     wide        : 1400px,
+//     'xl'        : 1400px,
+//     'sidebar'   : 880px
+// ) !default;
+
+// patient page Chevron CTAs
+// Before Treatment & During Treatment & After Treatment
+// Color inversion
+.pre-submission-revisions.color-inversion {
+    @include mq($from: desktop) {
+        .teal, .vertical-cta .teal .content-body p,
+        .red, .vertical-cta .red .content-body p,
+        .navy, .vertical-cta .navy .content-body p {
+            color: white
+        }
+        .teal {
+            .content-callout  {
+                background-color: #fff;
+                &::before{
+                    background-image: url('/wp-content/themes/navdx/images/arrow-tail-white.svg');
+                }
+                &::after{
+                    background-image: url('/wp-content/themes/navdx/images/arrow-head-white.svg');
+                }
+                // @include mq($until: desktop){
+                //     &::before{
+                //         background-image: url('/wp-content/themes/navdx/images/arrow-tail-white-down.svg');
+                //     }
+                //     &::after{
+                //         background-image: url('/wp-content/themes/navdx/images/arrow-head-white-down.svg');
+                //     }
+                // }
+            }
+            .cta-border{
+                &::after{
+                    background-image: url('/wp-content/themes/navdx/images/arrow-head-teal.svg');
+                }
+                // @include mq($until: desktop){
+                //     &::after{
+                //         background-image: url('/wp-content/themes/navdx/images/arrow-head-teal-down.svg');
+                //     }
+                // }
+            }
+            .cta-color {
+                color: #25b8b9,
+            }
+            .cta .cta-border {
+                background-color: #25b8b9;
+            }
+        }
+        .red {
+            .content-callout  {
+                background-color: #fff;
+                &::before{
+                    background-image: url('/wp-content/themes/navdx/images/arrow-tail-white.svg');
+                }
+                &::after{
+                    background-image: url('/wp-content/themes/navdx/images/arrow-head-white.svg');
+                }
+                // @include mq($until: desktop){
+                //     &::before{
+                //         background-image: url('/wp-content/themes/navdx/images/arrow-tail-white-down.svg');
+                //     }
+                //     &::after{
+                //         background-image: url('/wp-content/themes/navdx/images/arrow-head-white-down.svg');
+                //     }
+                // }
+            }
+            .cta-border{
+                &::after{
+                    background-image: url('/wp-content/themes/navdx/images/arrow-head-red.svg');
+                }
+                // @include mq($until: desktop){
+                //     &::after{
+                //         background-image: url('/wp-content/themes/navdx/images/arrow-head-red-down.svg');
+                //     }
+                // }
+            }
+            .cta-color {
+                color: #ba1e2d,
+            }
+            .cta .cta-border {
+                background-color: #ba1e2d;
+            }
+        }
+        .navy {
+            .content-callout  {
+                background-color: #fff;
+                &::before{
+                    background-image: url('/wp-content/themes/navdx/images/arrow-tail-white.svg');
+                }
+                &::after{
+                    background-image: url('/wp-content/themes/navdx/images/arrow-head-white.svg');
+                }
+                // @include mq($until: desktop){
+                //     &::before{
+                //         background-image: url('/wp-content/themes/navdx/images/arrow-tail-white-down.svg');
+                //     }
+                //     &::after{
+                //         background-image: url('/wp-content/themes/navdx/images/arrow-head-white-down.svg');
+                //     }
+                // }
+            }
+            .cta-border{
+                &::after{
+                    background-image: url('/wp-content/themes/navdx/images/arrow-head-navy.svg');
+                }
+                // @include mq($until: desktop){
+                //     &::after{
+                //         background-image: url('/wp-content/themes/navdx/images/arrow-head-navy-down.svg');
+                //     }
+                // }
+            }
+            .cta-color {
+                color: #264769,
+            }
+            .cta .cta-border {
+                background-color: #264769;
+            }
+        }
+
+        .cta.teal .cta-border {
+            background-color: #25b8b9;
+        }
+        .cta.red .cta-border {
+            background-color: #ba1e2d;
+        }
+        .cta.navy .cta-border {
+            background-color: #264769;
+        }
+    }
+}
+// #264769 navy
+// #25b8b9 teal
+// #ba1e2d red
+
+// page-id-234 = Surveillance Sub-page
+// page-id-225 = During Treatment Sub-page
+// page-id-231 = Pre-Treatment Sub-page
+.page-id-234, .page-id-225, .page-id-231 {
+    #masthead .menus .menu {
+        .menu-item-42 a {
+            font-weight: 700;
+            color: #25b8b9;
+        }
+    }
+}
+
+.special-highlight {
+    background-color: deeppink !important;
+    color: white !important;
+}
+
+ul.pre-launch-revisions.child-ul {
+    margin-top: 4px;
+}
+
+.component-text-with-chart.pre-launch-revisions {
+    position: relative;
+    .text-with-chart{
+        display: grid;
+        grid-template-areas:
+            'image content'
+            'image footnotes';
+        grid-template-columns: repeat(2, .5fr);
+        grid-template-rows: auto;
+        gap: 10px 40px;
+        justify-content: center;
+
+        .content{
+            grid-area: content;
+        }
+        .image{
+            grid-area: image;
+            position: relatvie;
+            margin: auto;
+        }
+        .footnotes{
+            grid-area: footnotes;
+            align-self: end;
+            .match-chart-axis{
+                @include mq('lg'){
+                    padding-bottom: 60px; //this is for the second chart on the surveillance page
+                }
+            }
+        }
+
+        &[data-image-position="right"]{
+            grid-template-areas:
+                'content image'
+                'footnotes image';
+        }
+        @include mq($until: desktop){
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                'image'
+                'content'
+                'footnotes';
+        }
+    }
+    &.chart-60{
+        .text-with-chart{
+            grid-template-columns: .6fr .4fr;
+            @include mq($until: desktop){
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+    &.bordered{
+        &::after{
+            position: absolute;
+            content: '';
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            border-left: 1px solid $navy;
+            border-right: 1px solid $navy;
+            @include mq($until: desktop){
+                display: none;
+            }
+        }
+        &.bordered-teal::after{
+            border-color: $teal;
+        }
+        &.bordered-red::after{
+            border-color: $red;
+        }
+    }
+    &.mobile-content-first{
+        @include mq($until: desktop){
+            .text-with-chart{
+                grid-template-areas:
+                    'content'
+                    'image'
+                    'footnotes';
+            }
+        }
+    }
+    &.stacked{
+        //layout specific to `use-in-hpv-cancers`
+        .text-with-chart{
+            grid-template-areas:
+                'content content'
+                'image image'
+                'footnotes footnotes';
+            grid-template-columns: 200px 1fr;
+            @include mq($until: desktop){
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    'content'
+                    'image'
+                    'footnotes';
+            }
+        }
+    }
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
+}
+
+.video-container img {
+    width: 100%;
+    height: auto;
+}
+
+.video-container .play-button {
+    position: absolute;
+    height: 58%;
+    width: 47%;
+    top: 42.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    border: none !important;
+}

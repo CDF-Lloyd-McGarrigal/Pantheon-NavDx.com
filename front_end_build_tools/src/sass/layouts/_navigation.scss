@@ -1,0 +1,16 @@
+// See _header.scss for menu item styling
+.menu-item{
+    position: relative;
+}
+.menu-item.disabled{
+    & > a{
+        cursor: default;
+        pointer-events: none;
+    }
+    &:hover{
+        & > a{
+            font-weight: bold !important;
+            color: $teal !important;
+        }
+    }
+}

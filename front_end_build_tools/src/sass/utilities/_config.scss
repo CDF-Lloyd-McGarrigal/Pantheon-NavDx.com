@@ -1,0 +1,39 @@
+// Padding (em)
+// The default creates p0 - p6 helper classes for all padding, top, right, bottom and left
+// Increment is the step-value when generating helper classes
+// End is the end value when generating helper classes
+$paddingIncrement: 0.5;		// The step for each padding
+$paddingEnd:3.5;			// The end value for padding selectors
+
+// Margin (em)
+// The default creates m0 - m6 helper classes for all margin, top, right, bottom and left
+// Increment is the step-value when generating helper classes
+// End is the end value when generating helper classes
+$marginIncrement: 0.5;		// The step for each margin
+$marginEnd:3.5;				// The end value for margin selectors
+
+// Padding (px)
+// Generates helper classes using the px value in the selector; pb10px
+$paddingPxIncrement: 5;
+$paddingPxEnd:35;
+
+// Margin (px)
+// Generates helper classes using the px value in the selector; mb10px
+$marginPxIncrement: 5;
+$marginPxEnd:35;
+
+// Font Size Config (px)
+// The list below is all PX font sizes that will be generated, this list can be added to or pruned
+// All fonts sizes will be translated to EM rather than setting in PX directly
+$fontSizes: 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32;
+
+// Grid
+// See http://sassflexboxgrid.com/ for usage, variables below
+$grid-columns: 12; // Set number of columns in the grid
+$gutter: 20px; // Set gutter size
+
+$xs-max: 40rem; // Set xs breakpoint's max width
+$sm-max: 64rem; // Set sm breakpoint's max width
+$md-max: 90rem; // Set md breakpoint's max width
+$lg-max: 120rem; // Set lg breakpoint's max width
+

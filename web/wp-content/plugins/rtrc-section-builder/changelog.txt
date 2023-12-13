@@ -1,0 +1,41 @@
+===
+1.2
+===
+
+* Made revision support a default for sections
+* Made the section metabox support revisions
+* Added a warning on the section builder page to remind the user to choose a section template
+* Fixed a bug where the "edit panel" button wouldn't change
+
+===
+1.3
+===
+
+* Addressed an issue where multiple copies of the same post would appear in the "post containing" box
+* Post containing box now outputs as a UL
+* Made hidden field disabling a bit more robust
+
+===
+1.4
+===
+
+* Added ability to programatically output the contents of one section
+* Added shortcode as an extra handler for the above
+
+===
+1.5
+===
+
+* Added search filters to add section data to search
+
+=====
+1.5.1
+=====
+
+* Fixed an issue where two sections with same-named image fields would result in overwritten data
+
+===
+1.6
+===
+* Update the Create section link so that it pulls the admin url
+* Update the Edit Section link so that it pulls the admin url

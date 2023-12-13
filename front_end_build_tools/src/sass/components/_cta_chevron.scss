@@ -1,0 +1,207 @@
+.component-cta-chevron{
+
+    @include mq('lg'){
+        padding-right:40px;
+    }
+}
+
+.cta-chevrons{
+
+    .cta{
+        max-width: 225px;
+        border: 4px solid $white;
+        border-bottom: none;
+        position: relative;
+        text-align: center;
+        margin-bottom:55px;
+
+        @include mq('lg'){
+            max-width: 275px;
+            display: flex;
+            flex-direction: row;
+            border-bottom: 5px solid $white;
+            border-right: none;
+            margin-bottom:0px;
+        }
+
+        @include mq(1180px){
+            max-width: 295px;
+        }
+
+        &:first-child{
+
+            @include mq("lg"){
+                margin-left:0px;
+            }
+        }
+
+        &:last-child{
+
+            @include mq("lg"){
+                margin-right:0px;
+            }
+        }
+
+        &:after{
+            position: absolute;
+            content: ' ';
+            display: block;
+            width:calc(100% + 8px);
+            height:30px;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+            @include mq($until : 'lg'){
+                bottom:-28px;
+                left:-4px;
+            }
+
+            @include mq('lg'){
+                right:-34px;
+                top:-4px;
+                height: calc(100% + 9px);
+                flex-basis: 38px;
+                width:50px;
+            }
+        }
+
+        .cta-content{
+            display: flex;
+            flex-direction: column;
+            padding:12px 5px 10px;
+            height:100%;
+            flex:1;
+
+            @include mq("lg"){
+                padding:12px 5px 15px 5px;
+            }
+        }
+
+        &.teal{
+            border-color: $teal;
+            color: $teal;
+
+            h3, p{
+                color:$teal;
+            }
+
+            .button{
+                background-color: $teal;
+                &:hover{
+                    background-color: inherit;
+                    color: $teal;
+                    border-color: $teal;
+                }
+            }
+
+            &:after{
+                background-image: url('../images/chevron-teal-sm.svg');
+
+                @include mq("lg"){
+                    background-image: url('../images/chevron-teal.svg');
+                }
+            }
+        }
+
+        &.navy{
+            border-color: $navy;
+            color: $navy;
+
+            h3, p{
+                color:$navy;
+            }
+
+            .button{
+                background-color: $navy;
+                &:hover{
+                    background-color: inherit;
+                    color: $navy;
+                    border-color: $navy;
+                }
+            }
+
+            &:after{
+                background-image: url('../images/chevron-navy-sm.svg');
+
+                @include mq("lg"){
+                    background-image: url('../images/chevron-navy.svg');
+                }
+            }
+        }
+
+        &.red{
+            border-color: $red;
+            color: $red;
+
+            h3, p{
+                color:$red;
+            }
+
+            .button{
+                background-color: $red;
+                &:hover{
+                    background-color: inherit;
+                    color: $red;
+                    border-color: $red;
+                }
+            }
+
+            &:after{
+                background-image: url('../images/chevron-red-sm.svg');
+
+                @include mq('lg'){
+                    background-image: url('../images/chevron-red.svg');
+                }
+            }
+        }
+    }
+
+    h3{
+        font-family: $bodyBold;
+        font-weight: bold;
+        font-size:18px;
+        flex-grow: 0;
+
+        @include mq("lg"){
+            font-size: 25px;
+        }
+    }
+
+    .content{
+        flex-grow: 1;
+        margin-bottom:6px;
+
+        @include mq("lg"){
+            margin-bottom:0px;
+        }
+
+        p{
+            font-size:11px;
+            line-height:14px;
+            font-weight: 500;
+            margin-bottom:13px;
+
+            @include mq("lg"){
+                font-size:15px;
+                line-height:17px;
+                margin-bottom:16px;
+            }
+        }
+    }
+
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-grow: 0;
+
+        .button{
+            margin-right: 10px;
+
+            &:last-of-type{
+                margin-right: 0;
+            }
+        }
+    }
+}

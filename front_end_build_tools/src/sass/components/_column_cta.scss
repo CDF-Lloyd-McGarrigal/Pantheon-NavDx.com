@@ -1,0 +1,187 @@
+.column-cta{
+
+
+    .cta-item{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: center;
+        position: relative;
+
+        &::after{
+            position: absolute;
+            top: 0;
+            bottom: -5px;
+            left: calc(100% + 32px); // we've set a 70px grid-gap in _base-cta
+            width: 5px;
+            content: '';
+        }
+        .physicianCTA{
+            text-align: left !important;
+        }
+
+        &[data-border-color=teal]{
+            &::after{
+                background-color: $teal;
+            }
+        }
+
+        &[data-border-color=navy]{
+            &::after{
+                background-color: $navy;
+            }
+        }
+
+        &[data-border-color=red]{
+            &::after{
+                background-color: $red;
+            }
+
+        }
+
+        &[data-border-color=none]{
+            &::after{
+                display: none;
+            }
+
+        }
+
+        .cta-text{
+            .physicianCTA{
+                background-color: orchid !important;
+                color: peru !important;
+
+            }
+            flex-grow: 1;
+
+            h2{
+                margin-bottom:4px;
+            }
+        }
+
+        @include mq($until: desktop){
+            &::after{
+                position: relative;
+                margin:20px auto 0px;
+                width: 100%;
+                height: 5px;
+                left:0px;
+                bottom:unset;
+            }
+        }
+
+        .buttons{
+
+            a.button{
+
+                @include mq($until : 'lg'){
+                    min-width:150px;
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Specific one-off differences in the component
+ */
+.component-column-cta{
+    &.header-colors{
+        h3{
+            font-size: 25px;
+            line-height: normal;
+        }
+        .cta-item{
+            text-align: left;
+        }
+    }
+    &.header-underline{
+        h3{
+            position: relative;
+            margin-bottom: 25px;
+            &::after{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                height: 5px;
+                content: '';
+            }
+        }
+        .cta-item[data-border-color="teal"]{
+            h3::after{
+                background-color: $teal;
+            }
+        }
+        .cta-item[data-border-color="navy"]{
+            h3::after{
+                background-color: $navy;
+            }
+        }
+        .cta-item[data-border-color="red"]{
+            h3::after{
+                background-color: $red;
+            }
+        }
+    }
+    &.border-left{
+        .column-cta{
+            margin: 0;
+        }
+        .cta-item{
+            padding-left: 30px;
+            flex-basis: 321px;
+            &::after{
+                display: none;
+            }
+            &::before{
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: 2px;
+                background-color: $navy;
+                content: '';
+            }
+        }
+        @include mq($until: desktop){
+            .cta-item{
+                padding-left: 0;
+                &::before{
+                    display: none;
+                }
+                h3{
+                    text-align: center;
+                }
+            }
+        }
+    }
+    &.four-across{
+        .cta-item{
+            flex-basis: 225px;
+            min-width: 225px;
+        }
+    }
+    &.no-border{
+        .cta-item::after{
+            display: none;
+        }
+    }
+}
+.resources-grid{
+    .column-cta{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        .cta-item{
+            min-width: 0;
+        }
+        @include mq($until: lg){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include mq($until: md){
+            grid-template-columns: 1fr;
+        }
+    }
+}

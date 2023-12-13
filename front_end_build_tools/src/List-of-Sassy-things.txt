@@ -1,0 +1,12 @@
+List of Sassy things
+
+- Mixins
+	CSS3 Animations (Done)
+- Normalize (Done)
+- Overall Structure
+	- Variables (done)
+	- Column Centering
+	- Vertical Centering
+	- Modal Windows
+	- Font Icons (File in place)
+	- Custom Selects

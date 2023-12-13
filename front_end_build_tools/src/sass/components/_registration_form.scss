@@ -1,0 +1,278 @@
+.gfield.hidden_label{
+    label{
+        display: none;
+    }
+    .gfield_radio{
+        label{
+            display: block;
+        }
+    }
+}
+
+/* Site options styling */
+[data-remodal-id]{
+    display: none;
+    &.remodal-is-opened{
+        display: block;
+        padding: 30px;
+        @include mq($until: desktop){
+            width: 90vw;
+        }
+        h3{
+            font-size: 34px;
+            line-height: 39px;
+            font-weight: bold;
+        }
+        .gform_wrapper{
+            padding-top: 20px;
+            .gform_fields{
+                display: grid;
+                gap: 10px;
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: auto;
+
+                // first name field
+                #field_2_1 {
+                    grid-column: span 3;
+                    // grid-row: 1 / 2;
+                }
+                .gfield:first-of-type(){
+                    //
+                }
+
+                // last name fieele
+                #field_2_3 {
+                    grid-column: span 3;
+                    // grid-row: 1 / 2;
+                }
+                .gfield:nth-child(2){
+                    //
+                }
+
+                // zip code field
+                #field_2_6 {
+                    grid-column: span 2;
+                }
+
+                // email field
+                #field_2_4 {
+                    grid-column: span 4;
+                    // grid-row: 2 / 3;
+                }
+                .gfield:nth-child(3){
+                    //
+                }
+
+                // interest field
+                #field_2_5 {
+                    grid-column: span 3;
+                    // grid-row: 3 / 4;
+                }
+                .gfield:nth-child(4){
+                    //
+                }
+
+
+                [data-field-name]{
+                    width: 100%;
+                }@include mq($until: tablet){
+                    display: flex;
+                    flex-direction: column;
+                }@include mq($from: tablet) {
+                    width: 600px;
+                    margin: auto;
+                }
+            }
+            input[type="text"],
+            input[type="radio"]{
+                border: 1px solid $gray;
+                &:focus{
+                    outline: none;
+                    border: none;
+                    border: 1px solid $teal;
+                }
+            }
+            input[type="submit"]{
+                @extend .button.large;
+                border: 1px solid $navy;
+                background-color: $navy;
+                &:hover{
+                    color: $navy;
+                }
+            }
+            input[type="text"]{
+                font-size: 16px;
+                padding: 10px;
+                width: 100%;
+            }
+            label{
+                font-size: 16px;
+            }
+            legend.gfield_label{
+                display: none;
+            }
+            .gfield_description{
+                color: $navy;
+            }
+            .gform_footer{
+                padding-bottom: 0;
+            }
+            .gform_validation_container{
+                display: none;
+            }
+            fieldset{
+                border: none !important;
+            }
+            .gchoice{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                label{
+                    color: $gray;
+                }
+            }
+            .gfield_validation_message{
+                background: $teal;
+                border: none;
+                color: $white;
+                height: auto;
+                width: auto;
+                position: relative;
+                float: left;
+                margin: 10px 0;
+                font-size: 16px;
+                padding: 5px 10px 5px 30px;
+                &::before{
+                    position: absolute;
+                    display: block;
+                    content: '';
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 25px;
+                    background: transparent url('/wp-content/themes/navdx/images/exclamation-mark.svg') center right no-repeat;
+                    background-size: 16px;
+                }
+            }
+            .gform_validation_errors{
+                display: none;
+            }
+        }
+    }
+}
+.remodal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($navy, .6);
+    z-index: 1000;
+}
+.remodal-wrapper.remodal-is-opened{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    background-color: $white;
+    .close-button{
+        cursor: pointer;
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        background: transparent url('/wp-content/themes/navdx/images/close-form-icon.svg') center center no-repeat;
+        background-size: 15px 15px;
+    }
+}
+.gform_confirmation_message{
+    color: $navy;
+}
+
+/* Component styling */
+.registration-form{
+    margin: 0 auto;
+    .gform_wrapper form{
+        display: flex;
+        flex-direction: row;
+        justify-content: stretch;
+        align-items: center;
+        .gform_footer{
+            padding: 0;
+            margin: 0;
+            input{
+                margin: 0;
+            }
+        }
+        .gform_body{
+            flex-grow: 1;
+            .gform_validation_container{
+                display: none;
+            }
+        }
+        input{
+            height: 60px;
+            margin: 0;
+            &[type="submit"]{
+                @extend .button-class-template;
+                border: none;
+                &:hover{
+                    color: $teal;
+                }
+                @include mq($until: desktop){
+                    font-size: 18px;
+                    min-width: 130px;
+                }
+            }
+            &[type="text"]{
+                border-width: 1px;
+                border-style: solid;
+                border-color: $navy;
+                width: 100%;
+                font-size: 16px;
+                padding: 10px;
+                @include mq('lg'){
+                    border-right: none;
+                }
+            }
+        }
+        @include mq($until: desktop){
+            flex-direction: column;
+            .gform_body{
+                padding-bottom: 10px;
+                width: 100%;
+            }
+            input{
+                height: auto;
+            }
+        }
+    }
+    h3{
+        padding-bottom: 25px;
+    }
+    input[type="text"],
+    input[type="submit"]{
+        border-radius: 0;
+    }
+}
+.bg-navy,
+.bg-teal{
+    .registration-form{
+        h3{
+            color: $white;
+        }
+        input[type="text"]{
+            border-color: $white;
+        }
+    }
+}
+
+.button-class-template{
+    background-color: $teal;
+    color: $white;
+    font-weight: bold;
+}

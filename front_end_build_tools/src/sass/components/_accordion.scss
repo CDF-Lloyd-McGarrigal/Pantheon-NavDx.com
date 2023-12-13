@@ -1,0 +1,82 @@
+.wrapAccordion {
+    display: block;
+}
+
+.component-accordion{
+    border: 1px solid $gray;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.accordion {
+    display: block;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    height: auto;
+
+    color: $navy;
+    .item{
+        padding: 10px 20px;
+        border-top: 1px solid $gray;
+        background-color: rgba($gray, .1);
+        position: relative;
+        &:first-of-type{
+            border-top: none;
+        }
+        .accordion-state{
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 5px;
+            background: transparent url('/wp-content/themes/navdx/images/open-accordion.svg') center center no-repeat;
+            @include mq($until: desktop){
+                top: 10px;
+                right: -10px;
+                height: 15px;
+                width: 15px;
+            }
+        }
+        &.is-open{
+            background-color: transparent;
+            .accordion-state{
+                background-image: url('/wp-content/themes/navdx/images/close-form-icon.svg');
+            }
+            .item-content{
+                max-height: 100%;
+                padding-top: 15px;
+            }
+        }
+    }
+    .item-title{
+        margin: 0;
+        font-size: 25px;
+        line-height: 42px;
+        font-weight: bold;
+        position: relative;
+        @include mq($until: desktop){
+            font-size: 20px;
+            line-height: normal;
+            padding-right: 20px;
+        }
+    }
+    .item-content{
+        overflow: hidden;
+        max-height: 0;
+        // WP sometimes doesn't wrap content in paragraph tags...
+        font-size: 20px;
+        line-height: 24px;
+        p,
+        li{
+            font-size: 20px;
+            line-height: 24px;
+            // color: $gray;
+        }
+    }
+}
+
+.js-accordion-trigger {
+    cursor: pointer;
+}

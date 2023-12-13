@@ -1,0 +1,22 @@
+=====
+3.0.1
+=====
+
+* Added Changelog
+* Added support for "robust" domain mapping for GTM
+* UA code is now pushed to the dataLayer early enough for Page View
+
+=====
+3.1.0
+=====
+* Added support for pushing an IP address to the dataLayer for GTM
+
+=====
+3.2.0
+=====
+* Made the domain saving and checking force lowercase
+
+=====
+3.3.0
+=====
+* Allow setting of cookiebot exception

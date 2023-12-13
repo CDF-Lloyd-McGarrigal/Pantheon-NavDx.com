@@ -1,0 +1,24 @@
+{
+	"name": "arteric/baselineplugin",
+	"require": {
+		"monolog/monolog": "^1.24",
+		"league/event": "^2.2"
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://packages.metabox.io/3dce37069c995c8d2b95a4c03e23dd10"
+		}
+	],
+	"autoload": {
+		"classmap": [ 
+			"vendor/plugin-baseline/src/", 
+			"src/" 
+		]
+	},
+	"extra": {
+		"installer-paths": {
+			"vendor/meta-box/{$name}/": ["vendor:meta-box"]
+		}
+	}
+}

@@ -1,0 +1,114 @@
+# ================================= #
+# This .htaccess is a non-standard .htaccess to support WordPress being in its own directory
+# Do not replace this .htaccess with the standard WordPress one. It will break EVERYTHING
+# ================================= #
+
+# From codex.wordpress.org/htaccess
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+
+### Begin CDN ###
+# Don’t rewrite if a physical file exists
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.+) - [PT,L]
+
+# rewrite the url to the cdn bucket
+RewriteRule ^wp-content/uploads/(.*) https://dev-navdx-com.pantheonsite.io/wp-content/uploads/$1 [R=301,L]
+### End CDN ###
+
+# add a trailing slash to /wp-admin
+RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin/network$ $1wp-admin/network/ [R=301,L]
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) wordpress/$2 [R=301,L]
+RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ wordpress/$2 [R=301,L]
+RewriteRule . index.php [L]
+
+# END WordPress
+
+<FilesMatch ".(eot|ttf|otf|woff)">
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# ================================= #
+# End WordPress in separate directory
+# ================================= #
+
+# Fixes font loading on IE (all) over HTTPS
+<FilesMatch "\.(woff)$">
+    Header unset Vary
+</FilesMatch>
+<FilesMatch "\.(eot)$">
+    Header unset Vary
+</FilesMatch>
+
+# Fixes font loading on IE (all) over HTTPS
+<FilesMatch "\.(eot|otf|woff|ttf)$">
+   Header unset Cache-Control
+   Header unset Pragma
+</FilesMatch>
+
+# Disable xml-rpc
+<Files xmlrpc.php>
+order deny,allow
+deny from all
+</Files>
+
+# Don't let anyone get at the .env or .env.example
+<Files ~ "\.env(\..*)?">
+Order deny,allow
+deny from all
+</Files>
+
+# ================================= #
+# Enable gzip Compression, remove if WP-Rocket is going to be used
+# ================================= #
+# Gzip compression
+<IfModule mod_deflate.c>
+	# Active compression
+	SetOutputFilter DEFLATE
+	# Force deflate for mangled headers
+	<IfModule mod_setenvif.c>
+		<IfModule mod_headers.c>
+		SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+		RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+		# Don’t compress images and other uncompressible content, `no-gzip` and `dont-vary` are built-in env variable for gzip
+		SetEnvIfNoCase Request_URI \
+		\.(?:gif|jpe?g|png|rar|zip|exe|flv|mov|wma|mp3|avi|swf|mp?g|mp4|webm|webp)$ no-gzip dont-vary
+		</IfModule>
+	</IfModule>
+
+	# Compress all output labeled with one of the following MIME-types
+	<IfModule mod_filter.c>
+		AddOutputFilterByType DEFLATE application/atom+xml \
+			                          application/javascript \
+			                          application/json \
+			                          application/rss+xml \
+			                          application/vnd.ms-fontobject \
+			                          application/x-font-ttf \
+			                          application/xhtml+xml \
+			                          application/xml \
+			                          font/opentype \
+			                          image/svg+xml \
+			                          image/x-icon \
+			                          text/css \
+			                          text/html \
+			                          text/plain \
+			                          text/x-component \
+			                          text/xml
+	</IfModule>
+	<IfModule mod_headers.c>
+		Header append Vary: Accept-Encoding
+	</IfModule>
+</IfModule>
+# ================================= #
+# End gzip Compression
+# ================================= #

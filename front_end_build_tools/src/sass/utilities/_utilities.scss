@@ -1,0 +1,199 @@
+@import "config";
+@import "custom";
+@import "grid/grid-imports";
+@import "builder";
+
+@mixin utils(){
+	// Margins
+	@include buildMargin();
+	@include buildMargin( $unit: "px" );
+	// Padding
+	@include buildPadding();
+	@include buildPadding( $unit: "px" );
+	// Font Size
+	@include buildFontSize();
+
+	// Font Sizes
+	.shrinkText50{
+		font-size:50%;
+	}
+
+	.shrinkText,
+	.shrinkText60 {
+		font-size:60%;
+		line-height:1.2em;
+	}
+
+	.shrinkText75{
+		font-size:75%;
+		line-height:1.2em;
+	}
+
+	.shrinkText90{
+		font-size:90%;
+		line-height:1.2em;
+	}
+
+	.shrinkText80{
+		font-size:80%;
+		line-height:1.2em;
+	}
+
+	.growText110{
+		font-size:110%;
+	}
+
+	.growText120{
+		font-size:120%;
+	}
+
+	// Text align
+	.alignLeft{
+		text-align:left;
+	}
+
+	.alignCenter{
+		text-align:center;
+	}
+
+	.alignRight{
+		text-align:right;
+	}
+
+	// Font Weights
+	.weightLight {
+		font-weight:300;
+	}
+
+	.weightNormal {
+		font-weight:400;
+	}
+
+	.weightMedium {
+		font-weight:500;
+	}
+
+	.weightBold {
+		font-weight:700;
+	}
+
+	.styleNormal{
+		font-style:normal;
+	}
+
+	.styleItalic{
+		font-style:italic;
+	}
+
+	// Font Colors
+
+	.colorWhite{
+		color:#ffffff;
+	}
+
+	// Text Transforms
+	.hyphenate{
+		hyphens:auto;
+	}
+
+	.smallCaps{
+		font-variant: small-caps;
+	}
+
+	.lowercase{
+		text-transform:none;
+	}
+
+	.uppercase{
+		text-transform:uppercase;
+	}
+
+	.noTextTransform {
+		text-transform:none;
+	}
+
+	.noWrap{
+		white-space:nowrap;
+		display:inline-block;
+	}
+
+	.clear{
+		clear:both;
+	}
+
+	.width40{
+		width:40%;
+	}
+
+	.width50{
+		width:50%;
+	}
+
+	// Layout
+	.pRel{
+		position:relative;
+	}
+
+	.blockCenter{
+		margin:0px auto;
+	}
+
+	.inlineBlock{
+		display:inline-block;
+	}
+
+	.hide{
+		display:none;
+	}
+
+	.show{
+		display:block;
+	}
+
+	.displayBlock{
+		display:block;
+	}
+
+	.clearfix{
+		@include clearfix();
+	}
+
+	.floatLeft{
+		float:left;
+	}
+
+	.floatRight{
+		float:right;
+	}
+}
+
+.content{
+	@include utils();
+}
+@at-root{
+	@include utils();
+}
+
+@media screen and ( max-width: 768px ) {
+	.content{
+		// Margin
+		@include buildMargin( $mobile: true );
+		@include buildMargin( $mobile: true, $unit: "px" );
+		// Padding
+		@include buildPadding( $mobile: true );
+		@include buildPadding( $mobile: true, $unit: "px" );
+		// Font Size
+		@include buildFontSize( $mobile: true );
+	}
+
+	@at-root{
+		// Margin
+		@include buildMargin( $mobile: true );
+		@include buildMargin( $mobile: true, $unit: "px" );
+		// Padding
+		@include buildPadding( $mobile: true );
+		@include buildPadding( $mobile: true, $unit: "px" );
+		// Font Size
+		@include buildFontSize( $mobile: true );
+	}
+}

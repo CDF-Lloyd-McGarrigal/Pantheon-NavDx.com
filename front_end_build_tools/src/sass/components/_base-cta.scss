@@ -1,0 +1,34 @@
+.cta{
+    display:block;
+    margin: 0 auto;
+    justify-content: space-between;
+
+    .cta-item{
+        width:100%;
+        max-width:100%;
+
+        @include mq($until : 'lg'){
+            margin-bottom:20px;
+        }
+
+        @include mq("lg"){
+            flex-basis:306px;
+            min-width:306px;
+        }
+    }
+
+    @include mq('lg'){
+        max-width: $minWidth;
+        display: flex;
+    }
+}
+.max-width .cta{
+    max-width: $maxWidth;
+}
+.medium-width .cta{
+    max-width: $mediumWidth;
+}
+
+.columns-2 .cta{
+    max-width: 685px;
+}

@@ -1,0 +1,53 @@
+.component-text-with-video{
+
+	.text-with-video{
+		display:flex;
+		flex-direction: row;
+		.content{
+			flex:1;
+			margin-right:50px;
+			@include mq($until: desktop){
+				margin-right: 0;
+			}
+		}
+
+		.video{
+			flex-basis:auto;
+			min-width:380px;
+			img{
+				border: 5px solid $teal;
+			}
+
+			IFRAME{
+				width:380px;
+				height:248px;
+			}
+			@include mq($until: desktop){
+				min-width: auto;
+				iframe{
+					width: auto;
+				}
+			}
+		}
+		@include mq($until: desktop){
+			flex-direction: column;
+			text-align: center;
+			.call-to-action{
+				padding-bottom: 35px;
+			}
+		}
+		&[data-video-position="left"]{
+			flex-direction: row-reverse;
+			.content{
+				margin-right: 0;
+				margin-left: 50px;
+			}
+			@include mq($until: desktop){
+				flex-direction: column-reverse;
+				.content{
+					margin: 0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+===
+1.0
+===
+
+* Initial Version
+
+===
+1.1
+===
+
+* Added "post" support to the plugin
+
+===
+1.2
+===
+
+* Added new feature to enqueue the LD schema in the head rather than the footer
+
+===
+1.3
+=== 
+
+* Re-added post support. Whoops
+
+===
+1.5
+===
+
+* Removed extra enqueued CSS and JS
+
+===
+1.6
+===
+
+* Allowed post types now goes through a "rtrc_json_ld_schema_post_types" filter

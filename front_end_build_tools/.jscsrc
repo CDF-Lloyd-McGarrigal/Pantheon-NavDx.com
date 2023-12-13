@@ -1,0 +1,15 @@
+{
+	"preset": "idiomatic",
+	"validateQuoteMarks" : false,
+	"requireDollarBeforejQueryAssignment": true,
+	"requireSpacesInsideBrackets": false,
+	"maximumLineLength": false,
+	"jsDoc": {
+		"checkAnnotations": "closurecompiler",
+		"checkTypes": "strictNativeCase",
+		"enforceExistence": {
+			"allExcept": ["exports"]
+		}
+	},
+	"excludeFiles": ["test/**", "test.js", "**.json", "wp-base/public_html/**/js/**"]
+}

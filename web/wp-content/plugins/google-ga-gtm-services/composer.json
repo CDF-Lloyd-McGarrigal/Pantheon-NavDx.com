@@ -1,0 +1,9 @@
+{
+	"name": "arteric/google-ga-and-gtm-services",
+	"description": "Provides an easy to use interface to set UA and GTM codes in the WordPress CMS.",
+	"license": "proprietary",
+	"type": "wordpress-plugin",
+    "require": {
+        "php": ">=5.3.3"
+    }
+}

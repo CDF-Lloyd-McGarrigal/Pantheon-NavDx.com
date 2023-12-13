@@ -1,0 +1,39 @@
+===
+3.0
+===
+
+* Added EXTERNAL_LINK_CHECKER_VERSION constant to define the version number
+* Changed onclick hooks to one delegated "document click" hook.
+* Changed logic to determine what kind of popup to show
+* js-triggerModal now works if a parent element has the class
+
+===
+3.1
+===
+
+* Addressed an issue where specific domain modals may not work
+
+
+===
+3.2
+===
+
+* Added proper WPML support
+
+===
+3.3
+===
+
+* Added ability to specify URLs in domain box
+
+===
+3.4
+===
+
+* Added ability to ignore all domains, effectively "disabling" the generic exit modal part
+
+===
+3.5
+===
+
+* Fixed an issue that sometimes results in warnings

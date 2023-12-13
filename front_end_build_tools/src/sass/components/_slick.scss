@@ -1,0 +1,198 @@
+$sliderHeightLG : 390px;
+
+#carousel-section{
+
+    &.bg-white-teal-gradient{
+
+        @include mq("lg"){
+            background: linear-gradient(to top, $teal calc(50% + 50px), $white calc(50% - 50px));
+        }
+    }
+
+    @include mq($until: 'lg'){
+        .contentWrapper{
+            padding: 0;
+        }
+
+        background: $navy;
+    }
+}
+
+.slick-slider{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+    @include mq("lg"){
+        height:$sliderHeightLG;
+        margin-bottom:22px;
+    }
+}
+
+.slick-dots{
+    display:flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    //width:100vw;
+    max-width: 1144px;
+
+    @include mq($until : 'lg'){
+        margin-bottom:12px;
+    }
+
+    li{
+        width: 12px;
+        height: 12px;
+        margin:0px 2px;
+
+        @include mq("lg"){
+            width: 18px;
+            height: 18px;
+            margin:0px 5px;
+        }
+
+        &:before{
+            content:none;
+        }
+
+        button{
+            width: 12px;
+            height: 12px;
+            text-indent: 100px;
+            border-radius: 50%;
+            background-color:$teal;
+            border:0px solid transparent;
+            outline:none;
+            opacity:0.5;
+            overflow: hidden;
+            padding: 0;
+
+            @include mq("lg"){
+                width: 18px;
+                height: 18px;
+                background-color:$navy;
+            }
+
+            a.button{
+                margin-left:18px;
+            }
+        }
+
+        &.slick-active{
+
+            button{
+                opacity:1;
+            }
+        }
+    }
+}
+
+.slick-track{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include mq("lg"){
+        height:$sliderHeightLG;
+    }
+}
+
+.slick-slide{
+    float: left;
+
+    @include mq("lg"){
+        height:$sliderHeightLG;
+    }
+
+    > DIV{
+        position: relative;
+    }
+
+    .slide{
+        background-color:$navy;
+        padding:12px 0px 0px;
+
+        @include mq("lg"){
+            display:flex !important;
+            // width:100vw !important;
+            max-width: 1144px;
+            padding:12px 20px;
+            height:$sliderHeightLG;
+        }
+
+        .content{
+            text-align: center;
+            background-color:white;
+            padding:12px 20px;
+
+            @include mq("lg"){
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex:1;
+                background-color:transparent;
+                text-align: right;
+                margin-right: 72px;
+                padding:0px;
+            }
+
+            h2.header1{
+
+                @include mq($until :'lg'){
+                    font-size:19px;
+                    line-height:21px;
+                }
+
+                @include mq('lg'){
+                    margin-bottom:30px;
+                }
+            }
+
+            p{
+                font-size: 15px;
+                line-height: 21px;
+                color:$navy;
+                margin-bottom:6px;
+
+                @include mq("lg"){
+                    font-size:18px;
+                    line-height:20px;
+                    color:white;
+                    margin-bottom:10px;
+                }
+            }
+        }
+
+        .slide-image{
+            text-align: center;
+            padding:33px 20px 0px;
+
+            @include mq("lg"){
+                flex-basis:300px;
+                padding:0px;
+            }
+        }
+    }
+}

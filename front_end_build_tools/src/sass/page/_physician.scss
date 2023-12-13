@@ -1,0 +1,27 @@
+.physician-instance.component-text-with-image{
+    .text-with-image{
+        .image{
+            flex-basis: 140px;
+            padding-right: 15px;
+            padding-bottom: 0;
+            margin-right: 0;
+            @include mq($until: desktop){
+                padding-right: 0;
+            }
+        }
+        .content{
+            display: flex;
+            align-items: flex-end;
+        }
+        @include mq($until: desktop){
+            flex-direction: row;
+            .image{
+                min-width: 100px;
+                padding-right: 10px;
+            }
+            .content p{
+                text-align: left;
+            }
+        }
+    }
+}

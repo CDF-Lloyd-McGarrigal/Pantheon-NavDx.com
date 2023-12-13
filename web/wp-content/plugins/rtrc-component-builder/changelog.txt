@@ -1,0 +1,19 @@
+===
+1.1
+===
+
+* Added in revisions by default
+* Added requirements to README
+
+===
+1.2
+===
+
+* Made custom visibility logic, as the default conditional logic stuff is mad slow
+* Added filter to globally disable the wrapping divs
+
+===
+1.3
+===
+
+* Added filter to modify wrapper div

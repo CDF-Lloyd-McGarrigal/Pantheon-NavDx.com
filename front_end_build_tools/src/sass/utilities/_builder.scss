@@ -1,0 +1,115 @@
+@import "config";
+
+// Side shorthand selectors and long names for building styles
+$sidesSelector: "", "t", "b", "l", "r";
+$sidesLong: "", "-top", "-bottom", "-left", "-right";
+
+// Margin, padding and font size shorthand selectors
+$margin: "m";
+$padding: "p";
+$fontSize: "fs";
+
+// "Hidden" config, everything starts at 0
+$marginStart: 0;
+$paddingStart: 0;
+
+// Build MARGIN
+@mixin buildMargin( $mobile: false, $unit: "em" ){
+	$marginTotal: $marginStart;
+	$marginValues: ();
+
+	@if $mobile {
+		$mobile: "m\\:";
+	} @else {
+		$mobile: "";
+	}
+
+	@if $unit == "em" {
+		// Build a list of all our incremental values
+		@while $marginTotal < $marginEnd {
+			$marginValues: append( $marginValues, $marginTotal );
+			$marginTotal: $marginTotal + $marginIncrement;
+		}
+	} @else {
+		// Build a list of all our incremental values
+		@while $marginTotal < $marginPxEnd {
+			$marginValues: append( $marginValues, $marginTotal );
+			$marginTotal: $marginTotal + $marginPxIncrement;
+		}
+	}
+
+	// Loop through all of our sides
+	@for $i from 1 through length( $sidesSelector ) {
+		// Loop through all of our margin values
+		@for $j from 1 through length( $marginValues ) {
+			$selectorName: $j - 1;
+			@if $unit == "px" {
+				// construct our pixel value selector, so 25p to create the selector of mb25p (margin bottom 25 px)
+				$selectorName: #{nth( $marginValues, $j )}#{"px"};
+			}
+
+			// contruct our selector, optional mobile slector, the margin side and either the pixel value, or the em increment
+			.#{ $mobile }#{ $margin }#{nth( $sidesSelector, $i )}#{$selectorName}{
+				margin#{nth( $sidesLong, $i )}: #{nth( $marginValues, $j )}#{$unit};
+			}
+		}
+	}
+}
+
+// Build PADDING
+@mixin buildPadding( $mobile: false, $unit: "em" ){
+	$paddingTotal: $paddingStart;
+	$paddingValues: ();
+
+	@if $mobile {
+		$mobile: "m\:";
+	} @else {
+		$mobile: "";
+	}
+
+	@if $unit == "em" {
+		// Build a list of all our incremental values
+		@while $paddingTotal < $paddingEnd {
+			$paddingValues: append( $paddingValues, $paddingTotal );
+			$paddingTotal: $paddingTotal + $paddingIncrement;
+		}
+	} @else {
+		// Build a list of all our incremental values
+		@while $paddingTotal < $paddingPxEnd {
+			$paddingValues: append( $paddingValues, $paddingTotal );
+			$paddingTotal: $paddingTotal + $paddingPxIncrement;
+		}
+	}
+
+	// Loop through all of our sides
+	@for $i from 1 through length( $sidesSelector ) {
+		// Loop through all of our padding values
+		@for $j from 1 through length( $paddingValues ) {
+			$selectorName: $j - 1;
+			@if $unit == "px" {
+				// construct our pixel value selector, so 25p to create the selector of mb25p (margin bottom 25 px)
+				$selectorName: #{nth( $paddingValues, $j )}#{"px"};
+			}
+
+			.#{ $mobile }#{ $padding }#{nth( $sidesSelector, $i )}#{$j - 1}{
+				padding#{nth( $sidesLong, $i )}: #{nth( $paddingValues, $j )}#{$unit};
+			}
+		}
+	} 
+}
+
+// Build PADDING
+@mixin buildFontSize( $mobile: false ){
+	@if $mobile {
+		$mobile: "m\:";
+	} @else {
+		$mobile: "";
+	}
+
+	// Loop through all of our sizes
+	@for $i from 1 through length( $fontSizes ) {
+		.#{ $mobile }#{ "fs" }#{ nth( $fontSizes, $i ) }{
+			font-size:em( nth( $fontSizes, $i ) );
+		}
+	} 
+}

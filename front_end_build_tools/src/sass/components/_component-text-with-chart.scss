@@ -1,0 +1,98 @@
+.component-text-with-chart{
+    position: relative;
+    .text-with-chart{
+        display: grid;
+        grid-template-areas:
+            'image content'
+            'image footnotes';
+        grid-template-columns: repeat(2, .5fr);
+        grid-template-rows: auto;
+        gap: 10px 40px;
+        justify-content: center;
+
+        .content{
+            grid-area: content;
+        }
+        .image{
+            grid-area: image;
+        }
+        .footnotes{
+            grid-area: footnotes;
+            align-self: end;
+            .match-chart-axis{
+                @include mq('lg'){
+                    padding-bottom: 60px; //this is for the second chart on the surveillance page
+                }
+            }
+        }
+
+        &[data-image-position="right"]{
+            grid-template-areas:
+                'content image'
+                'footnotes image';
+        }
+        @include mq($until: desktop){
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                'image'
+                'content'
+                'footnotes';
+        }
+    }
+    &.chart-60{
+        .text-with-chart{
+            grid-template-columns: .6fr .4fr;
+            @include mq($until: desktop){
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+    &.bordered{
+        &::after{
+            position: absolute;
+            content: '';
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            border-left: 1px solid $navy;
+            border-right: 1px solid $navy;
+            @include mq($until: desktop){
+                display: none;
+            }
+        }
+        &.bordered-teal::after{
+            border-color: $teal;
+        }
+        &.bordered-red::after{
+            border-color: $red;
+        }
+    }
+    &.mobile-content-first{
+        @include mq($until: desktop){
+            .text-with-chart{
+                grid-template-areas:
+                    'content'
+                    'image'
+                    'footnotes';
+            }
+        }
+    }
+    &.stacked{
+        //layout specific to `use-in-hpv-cancers`
+        .text-with-chart{
+            grid-template-areas:
+                'content content'
+                'image image'
+                '. footnotes';
+            grid-template-columns: 200px 1fr;
+            @include mq($until: desktop){
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    'content'
+                    'image'
+                    'footnotes';
+            }
+        }
+    }
+}

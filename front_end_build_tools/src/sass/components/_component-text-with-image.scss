@@ -1,0 +1,67 @@
+.component-text-with-image{
+	
+	.text-with-image{
+		display:flex;
+		width:100%;
+		margin:0px auto;
+
+		.image{
+			flex-basis: 235px;
+			margin-right: 76px;
+			font-size: 14px;
+			color: $navy;
+			@include mq($until: desktop){
+				margin-right: 0;
+				text-align: center;
+				padding-bottom: 35px;
+				picture,
+				img{
+					float: none;
+					clear: both;
+					margin: 0 auto;
+				}
+			}
+
+			IMG{
+				margin-bottom:8px;
+			}
+		}
+		@include mq($until: desktop){
+			flex-direction: column;
+		}
+		&[data-image-position="right"]{
+			flex-direction: row-reverse;
+		}
+	}
+	&.bordered-image{
+		img{
+			border: 5px solid $teal;
+		}
+		&-navy{
+			img{
+				border-color: $navy;
+			}
+		}
+		&-red{
+			img{
+				border-color: $red;
+			}
+		}
+	}
+	&.thin{
+		.text-with-image{
+			text-align: center;
+			max-width: 910px;
+		}
+	}
+	@include mq($until: desktop){
+		h3{
+			text-align: center;
+		}
+	}
+	&.icon-image{
+		img{
+			max-width: 125px;
+		}
+	}
+}

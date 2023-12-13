@@ -1,0 +1,50 @@
+.component-callout{
+    .container{
+        display: grid;
+        grid-template-areas:
+            'icon content'
+            '. cta';
+        grid-template-columns: 125px 1fr;
+        align-items: center;
+        justify-items: start;
+        @include mq($until: 'lg'){
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    .icon{
+        grid-area: icon;
+        align-self: start;
+        max-width: 125px;
+        @include mq($until: 'lg'){
+            margin: 0 auto;
+        }
+    }
+    .content{
+        grid-area: content;
+        padding-left: 20px;
+        p{
+            @extend .font24;
+            margin-bottom: 0;
+        }
+        @include mq($until: 'lg'){
+            padding: 20px;
+            text-align: center;
+        }
+    }
+    .buttons{
+        padding-top: 5px;
+        padding-left: 20px;
+        grid-area: cta;
+    }
+    &.large-icon{
+        .icon{
+            max-width: 100%;
+            max-height: 125px;
+            @include mq($until: desktop){
+                max-height: 105px;
+            }
+        }
+    }
+}

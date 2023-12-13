@@ -1,0 +1,12 @@
+{
+	"name": "arteric/rtrc-json-ld-schema",
+	"description": "For injecting JSON LD",
+	"license": "proprietary",
+	"type": "wordpress-plugin",
+    "require": {
+        "php": ">=5.3.3"
+    },
+   	"extra": {
+        "installer-name": "rtrc-json-ld-schema"
+    }
+}

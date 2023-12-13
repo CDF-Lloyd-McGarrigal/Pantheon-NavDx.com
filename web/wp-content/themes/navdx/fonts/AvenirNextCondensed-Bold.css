@@ -1,0 +1,7 @@
+
+@font-face {
+    font-family:"Avenir Next Condensed";
+    src:url("AvenirNextCondensed-Bold.woff2") format("woff2"),url("AvenirNextCondensed-Bold.woff") format("woff"),url("AvenirNextCondensed-Bold.otf") format("opentype");
+    font-stretch: 30% 80%;
+    font-weight: 600;
+}

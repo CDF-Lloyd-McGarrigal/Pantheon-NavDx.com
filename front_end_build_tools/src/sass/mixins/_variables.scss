@@ -1,0 +1,23 @@
+// Typography
+$bodyFont: "Avenir", sans-serif;
+$bodyBold: "Avenir", sans-serif;
+$headerFont: "Orbitron";
+$condensedFont: "Avenir Condensed", sans-serif;
+
+// Sizes
+// https://pixelsconverter.com/pt-to-px
+$baseFontSize: 1em;
+$baseFontPX: 27; // 20pt
+$baseLineHeight: $baseFontSize * 1.5;
+
+$maxWidth: 1140px;
+$mediumWidth: 1100px;
+$minWidth: 1060px;
+
+// Colors
+$navy: rgb(38, 71, 105);
+$teal: rgb(37, 184, 185);
+$red: rgb(186, 30, 45);
+$white: rgb(255, 255, 255);
+$maroon: rgb(186, 30, 45);
+$gray: rgb(102, 102, 102);

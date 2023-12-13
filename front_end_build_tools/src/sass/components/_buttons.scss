@@ -1,0 +1,141 @@
+.button{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	min-width:70px;
+	min-height:22px;
+	padding:5px 10px;
+	font-size: 12px;
+	color: $white;
+	text-decoration: none;
+	width: fit-content;
+	margin:0px auto;
+	text-align: center;
+	border: 1px solid transparent;
+
+	@include mq("lg"){
+		font-size: 15px;
+		min-width:92px;
+
+
+	}
+
+	&.large{
+		font-size:16px;
+		font-weight: 700;
+		padding: 10px 20px;
+		margin: 0 auto;
+
+		@include mq("lg"){
+			font-size:20px;
+		}
+	}
+	&:hover{
+		background-color: $white !important;
+		border-width: 1px !important;
+		border-style: solid !important;
+	}
+	&.bg-teal:hover{
+		color: $teal;
+		border-color: $teal;
+	}
+	&.bg-navy:hover{
+		color: $navy;
+		border-color: $navy;
+	}
+	&.bg-red:hover{
+		color: $red;
+		border-color: $red;
+	}
+}
+
+.wide-button .button,
+.button.wide-button{
+	@include mq("lg"){
+		min-width: 155px !important;
+	}
+}
+
+.buttons{
+	display: flex;
+
+	&.centered{
+		justify-content: center;
+		
+		a.button{
+			margin-left: 4px;
+			margin-right: 4px;
+
+			@include mq('lg'){
+				margin-left:8px;
+				margin-right:8px;
+			}
+		}
+	}
+
+	&.right-aligned{
+		justify-content: center;
+
+		@include mq("lg"){
+			justify-content: flex-end;
+		}
+
+		a.button{
+			margin-left:5px;
+			margin-right:5px;
+
+			@include mq("lg"){
+				margin-left:18px;
+				margin-right:0px;
+			}
+		}
+	}
+
+	&.left-aligned{
+		justify-content: center;
+
+		@include mq("lg"){
+			justify-content: flex-start;
+		}
+
+		a.button{
+			margin-left:5px;
+			margin-right:5px;
+
+			@include mq("lg"){
+				margin-right:18px;
+				margin-left:0px;
+			}
+		}
+	}
+}
+
+.download{
+	@extend .button;
+
+	&:after{
+		width:18px;
+		height:20px;
+		margin-left:8px;
+		background-image:url('../images/download-icon.svg');
+		background-size:contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+		content:'';
+	}
+	&.bg-teal{
+		&:hover::after{
+			background-image: url('../images/download-icon-teal.svg');
+		}
+	}
+	&.bg-red{
+		&:hover::after{
+			background-image: url('../images/download-icon-red.svg');
+		}
+	}
+	&.bg-navy{
+		&:hover::after{
+			background-image: url('../images/download-icon-navy.svg');
+		}
+	}
+}

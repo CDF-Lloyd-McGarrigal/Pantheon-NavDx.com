@@ -1,0 +1,133 @@
+.padded-cta{
+	.cta-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: center;
+        border: 20px solid $teal;
+				padding: 12px 0;
+				background-color: $white;
+				margin: 0 2px;
+
+        &[data-border-color=navy]{
+            border-color: $navy;
+        }
+        &[data-border-color=red]{
+            border-color: $red;
+        }
+        &[data-border-color=none]{
+            border-color: transparent;
+        }
+
+        .cta-text{
+            flex-grow: 1;
+			padding-left: 20px;
+			padding-right: 20px;
+
+			h2{
+				margin-bottom:15px;
+			}
+			h3{
+				font-size: 24px;
+				line-height: 26px;
+			}
+
+			p{
+				// @extend p.small;
+				&:last-of-type{
+					padding-bottom: 0;
+				}
+			}
+        }
+
+		.buttons.centered{
+			align-content: center;
+			@include mq($until: tablet){
+				flex-direction: column;
+				.button,
+				.download{
+					width: 100%;
+					margin-bottom: 0;
+					margin-left: 0;
+					margin-right: 0;
+				}
+			}
+		}
+
+		.button{
+			margin: 12px 30px 16px;
+			@include mq("lg"){
+				margin: 32px 30px 16px;
+				width: fit-content;
+				min-width: fit-content;
+				&:nth-child(even){
+					margin-left: 0;
+					margin-right: 0;
+				}
+			}
+
+			a{
+				@include mq($until : 'lg'){
+					justify-content: center;
+				}
+
+				.button-text{
+					display:block;
+					flex-grow:1;
+					color: $white;
+				}
+			}
+			&.ml0{
+				margin-left: 0;
+			}
+			&.mr0{
+				margin-right: 0;
+			}
+		}
+		.comm-logo{
+			width: 50px;
+			margin: 5px;
+		}
+	}
+	@include mq($until: desktop){
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+}
+
+.padded-cta-alt{
+	.padded-cta{
+		@include mq('lg'){
+			.cta-item{
+				flex-basis: 495px;
+				.icon{
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+	&.icon-on-top{
+		.cta-item{
+			border-width: 7px;
+			.icon{
+				order: 0;
+				margin: 16px auto;
+			}
+			.cta-text{
+				order: 1;
+			}
+			.buttons{
+				order: 2;
+				.button{
+					margin-top: 8px;
+				}
+			}
+		}
+	}
+}
+
+.wide-ctas{
+	.cta .cta-item{
+		flex-basis: 330px;
+	}
+}

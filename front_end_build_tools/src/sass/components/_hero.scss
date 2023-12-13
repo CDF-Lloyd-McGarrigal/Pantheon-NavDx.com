@@ -1,0 +1,19 @@
+.hero{
+    @extend .slick-slide;
+    position: relative;
+    float: none;
+    @include mq($until: desktop){
+        .slide .slide-image{
+            padding-bottom: 30px;
+        }
+    }
+}
+.mobile-transparent-background .slide .content{
+    background-color: transparent;
+}
+.no-wrapper-padding > div{
+    padding-top: 0;
+}
+.tighterKern{
+    letter-spacing: -5px;
+}

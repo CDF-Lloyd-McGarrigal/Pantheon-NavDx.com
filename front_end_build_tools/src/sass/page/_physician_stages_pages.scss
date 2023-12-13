@@ -1,0 +1,31 @@
+.mobile-bottom-border{
+    @include mq($until: desktop){
+        margin-bottom: 0;
+        padding-bottom: 20px;
+        position: relative;
+        &::after{
+            position: absolute;
+            top: 100%;
+            left: -20px;
+            right: -20px;
+            height: 10px;
+            display: block;
+            content: '';
+        }
+    }
+    body.navy & {
+        &::after{
+            background-color: $navy;
+        }
+    }
+    body.red & {
+        &::after{
+            background-color: $red;
+        }
+    }
+    body.teal & {
+        &::after{
+            background-color: $teal;
+        }
+    }
+}
